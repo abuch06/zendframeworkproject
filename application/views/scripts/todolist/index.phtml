@@ -1,0 +1,28 @@
+->
+
+
+ToDo List Entries: <br />
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+        <dt>
+            <?php echo $this->escape($entry->itemnum) ?>:
+            <?php echo $this->escape($entry->task) ?>
+            <a href="<?php echo $this->url(
+                array(
+                    'controller' => 'todolist',
+                    'action'     => 'done',
+                    'itemnum'    =>  $entry->itemnum,
+                ),
+                'default',
+                true) ?>">Done</a>
+
+        </dt>
+    <?php endforeach ?>
+</dl>
+<p><a href="<?php echo $this->url(
+        array(
+            'controller' => 'todolist',
+            'action'     => 'add'
+        ),
+        'default',
+        true) ?>">Add to your todo list</a></p>

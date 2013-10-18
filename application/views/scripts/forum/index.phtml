@@ -1,0 +1,16 @@
+<!-- application/views/scripts/forum/index.phtml -->
+<p><a href="<?php echo $this->url(
+        array(
+            'controller' => 'forum',
+            'action'     => 'sign'
+        ),
+        'default',
+        true) ?>">Comment on our Forum</a></p>
+
+Forum Entries: <br />
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+        <div class = "user_id"><?php echo $this->escape($entry->user_id) ?></div>
+        <div class = "comment"><?php echo $this->escape($entry->comment) ?></div>
+    <?php endforeach ?>
+</dl>
